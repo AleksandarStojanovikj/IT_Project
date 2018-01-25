@@ -68,7 +68,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-4 form-group">
-                 <asp:Label ID="lblAlreadyTaken" runat="server" Text="Username already taken!" class="alert alert-danger" role="alert"></asp:Label></div>
+                 <asp:Label ID="lblAlreadyTaken" runat="server" Text="Username already taken!" class="alert alert-danger" role="alert" Visible="False"></asp:Label></div>
 
            
          </div>
