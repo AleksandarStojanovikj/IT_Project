@@ -23,7 +23,7 @@ public partial class ShowMyMovies : System.Web.UI.Page {
     void fillLB() {
         SqlConnection connection = new SqlConnection();
         connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
-        string sqlCommand = "SELECT Title FROM Movies m, Favourites f WHERE m.imdbID=f.Movie_ID AND f.User_ID=@username";
+        string sqlCommand = "SELECT Title FROM Movies m, Favorites f WHERE m.imdbID=f.MovieID AND f.Username=@username";
         SqlCommand command = new SqlCommand(sqlCommand, connection);
         command.Parameters.AddWithValue("@username", Session["username"].ToString());
 

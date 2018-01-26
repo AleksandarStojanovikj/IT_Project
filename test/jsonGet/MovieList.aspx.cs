@@ -107,10 +107,10 @@ public partial class MovieList : System.Web.UI.Page {
                 connection.Close();
             }
 
-            sqlString = "INSERT INTO Favourites (Movie_ID, User_ID) VALUES (@Movie_ID, @USER_ID)";
+            sqlString = "INSERT INTO Favorites (MovieID, Username) VALUES (@MovieID, @Username)";
             SqlCommand command2 = new SqlCommand(sqlString, connection);
-            command2.Parameters.AddWithValue("@Movie_ID", tempMovie.imdbID);
-            command2.Parameters.AddWithValue("@USER_ID", Session["username"]);
+            command2.Parameters.AddWithValue("@MovieID", tempMovie.imdbID);
+            command2.Parameters.AddWithValue("@Username", Session["username"]);
             
             try {
                 connection.Open();
