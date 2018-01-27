@@ -4,42 +4,52 @@ using System.Data.SqlClient;
 
 public partial class Login : System.Web.UI.Page {
     protected void Page_Load(object sender, EventArgs e) {
-
+        if (!Page.IsPostBack) {
+            Session.Abandon();
+        }
     }
 
     protected void btnLogin_Click(object sender, EventArgs e) {
-        SqlConnection connection = new SqlConnection();
-        connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
-        string sqlString = "Select * From Users WHERE Username=@username";
-        SqlCommand command = new SqlCommand(sqlString, connection);
-        command.Parameters.AddWithValue("@username", tbUsername.Text);
-        //bool exists = false;
-        //string msg = "";
 
-        try {
-            connection.Open();
-            command.ExecuteNonQuery();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read()) {
-                //if (reader["Username"].ToString().Equals(tbUsername.Text)) {
-                // exists = true;
-                if (reader["Password"].ToString().Equals(tbPassword.Text)) {
-                    //    msg = "success"; //bi trebalo redirect na glavna strana
-                    Session["username"] = tbUsername.Text;
-                    Response.Redirect("Main.aspx");
-                }
-                else {
-                    //     msg = "Wrong username or password";
-                }
-                // }
-            }
-
-        }
-        catch (Exception err) {
+        if (tbUsername.Text == "" || tbPassword.Text == "") {
+            lblError.Text = "Please fill in all the fields";
             lblError.Visible = true;
         }
-        finally {
-            connection.Close();
+        else {
+            lblError.Text = "Oops! Wrong credentials...";
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
+            string sqlString = "Select * From Users";
+            SqlCommand command = new SqlCommand(sqlString, connection);
+            command.Parameters.AddWithValue("@username", tbUsername.Text);
+
+            try {
+                connection.Open();
+                command.ExecuteNonQuery();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    if (reader["Username"].ToString().Equals(tbUsername.Text)) {
+                        if (reader["Password"].ToString().Equals(tbPassword.Text)) {
+                            Session["username"] = tbUsername.Text;
+                            Response.Redirect("Home.aspx");
+                        }
+                        else {
+                            lblError.Visible = true;
+                        }
+                    }
+                    else {
+                        lblError.Visible = true;
+                    }
+                }
+
+            }
+            catch (Exception err) {
+                lblError.Text = err.Message;
+                lblError.Visible = true;
+            }
+            finally {
+                connection.Close();
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LoginMaster.aspx.cs" Inherits="LoginMaster" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Register.aspx.cs"%>
 
 <!DOCTYPE html>
 
@@ -54,7 +54,7 @@
          </div> 
              <div class="row justify-content-center">
                  <div class="col-4 form-group">
-                    <asp:Button ID="Button1" runat="server" Text="Sign Up" type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false"/>
+                    <asp:Button ID="Button2" runat="server" Text="Sign Up" type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false"/>
                  </div>
                 
              </div>

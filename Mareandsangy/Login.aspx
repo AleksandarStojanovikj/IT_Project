@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login"%>
 
 <!DOCTYPE html>
 
@@ -50,7 +50,7 @@
          </div>  
              <div class="row justify-content-center">
                  <div class="col-4 form-group">
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false" OnClick="btnLogin_Click"/>
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" type="button" CssClass="btn btn-danger" aria-pressed="false" OnClick="btnLogin_Click"/>
                  </div>
                 
              </div>
@@ -64,7 +64,8 @@
 
             <div class="row justify-content-center">
                 <div class="col-4 form-group">
-                <asp:Label ID="lblError" runat="server" Text="Oops! Wrong credidentials.." class="alert alert-danger" role="alert" Visible="False"></asp:Label></div>
+                <asp:Label ID="lblError" runat="server" Text="Oops! Wrong credidentials.." CssClass="alert alert-danger" role="alert" Visible="False"></asp:Label>
+                </div>
              </div>
            
          </div>

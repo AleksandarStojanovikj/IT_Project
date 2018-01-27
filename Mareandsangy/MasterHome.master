@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterHome.master.cs" Inherits="MasterHome" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    
+    <style>
+    
+
+
+
+
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body style="background-color:#d8d4d6">
+    <form id="form1" runat="server">
+   
+        
+	
+	<div class="row justify-content-around align-items-center py-2" style="background-color:indianred;">
+	<div class="col-3 input-group">
+        <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2"></asp:TextBox>
+        <div class="input-group-append">
+            <asp:Button ID="Button1" runat="server" Text="Search" class="btn btn-light" type="button"/>
+            </div>
+	</div>
+        <div class="col-2">
+            <h5 style="color:white">Hello <em style="color:white">
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MyPage.aspx" ForeColor="White"></asp:HyperLink></em>
+                </h5>
+      </div>
+        
+        
+    </div>
+
+       
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+   
+    </form>
+</body>
+</html>
