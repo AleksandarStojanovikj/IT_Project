@@ -72,16 +72,16 @@
                         <asp:Image ID="imgPoster" runat="server" />
                     </div>
                     <div class="row">
-                        <asp:Label ID="Label2" runat="server" Text="Tile:"></asp:Label><asp:Label ID="lblTitle" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Tile:" ForeColor="White" Font-Bold="True"></asp:Label><asp:Label ID="lblTitle" runat="server" Text=""  ForeColor="White"></asp:Label>
                     </div>
                     <div class="row">
-                        <asp:Label ID="Label4" runat="server" Text="Duration: "></asp:Label><asp:Label ID="lblDuration" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="Label4" runat="server" Text="Duration: "  ForeColor="White" Font-Bold="True"></asp:Label><asp:Label ID="lblDuration" runat="server" Text=""  ForeColor="White"></asp:Label>
                     </div>
                     <div class="row">
-                        <asp:Label ID="Label6" runat="server" Text="Director: "></asp:Label><asp:Label ID="lblDirector" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="Label6" runat="server" Text="Director: "  ForeColor="White" Font-Bold="True"></asp:Label><asp:Label ID="lblDirector" runat="server" Text=""  ForeColor="White"></asp:Label>
                     </div>
                     <div class="row">
-                        <asp:Label ID="Label8" runat="server" Text="Plot: "></asp:Label><asp:Label ID="lblPlot" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="Label8" runat="server" Text="Plot: "  ForeColor="White" Font-Bold="True"></asp:Label><asp:Label ID="lblPlot" runat="server" Text=""  ForeColor="White"></asp:Label>
                     </div>
                 </asp:Panel>
             </div>

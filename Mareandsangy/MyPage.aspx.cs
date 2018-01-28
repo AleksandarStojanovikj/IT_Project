@@ -17,17 +17,20 @@ public partial class MyPage : System.Web.UI.Page {
     protected void btnFavorites_Click(object sender, EventArgs e) {
         // fillGVAll("fav");
         fillGV();
+        gvMyFavs.SelectedIndex = -1;
     }
 
     protected void btntoWatch_Click(object sender, EventArgs e) {
         //fillGVW("false");
         //fillGVAll("false");
         fillGVToWatch();
+        gvToWatch.SelectedIndex = -1;
     }
 
     protected void btnWatched_Click(object sender, EventArgs e) {
         // fillGVW("true");
         fillGVW();
+        gvMyFavs.SelectedIndex = -1;
     }
 
     protected void gvMyFavs_SelectedIndexChanged(object sender, EventArgs e) {
@@ -282,7 +285,7 @@ public partial class MyPage : System.Web.UI.Page {
         gvMyFavs.DataSource = ds;
         gvMyFavs.DataBind();
         gvMyFavs.Visible = true;
-        pnlDetails.Visible = false;
+        //pnlDetails.Visible = false;
     }
 
     protected void gvToWatch_PageIndexChanging(object sender, GridViewPageEventArgs e) {
@@ -292,6 +295,6 @@ public partial class MyPage : System.Web.UI.Page {
         gvToWatch.DataSource = ds;
         gvToWatch.DataBind();
         gvToWatch.Visible = true;
-        pnlDetails.Visible = false;
+       // pnlDetails.Visible = false;
     }
 }
