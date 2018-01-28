@@ -136,4 +136,14 @@ public partial class OtherUserPage : System.Web.UI.Page {
             connection.Close();
         }
     }
+
+    protected void gvMyFavs_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e) {
+        gvMyFavs.PageIndex = e.NewPageIndex;
+        gvMyFavs.SelectedIndex = -1;
+        DataSet ds = (DataSet)ViewState["dataset"];
+        gvMyFavs.DataSource = ds;
+        gvMyFavs.DataBind();
+        gvMyFavs.Visible = true;
+        pnlDetails.Visible = false;
+    }
 }

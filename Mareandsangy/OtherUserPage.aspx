@@ -30,7 +30,7 @@
             <div class="col-1"></div>
 
             <div class="col-6">
-                <asp:GridView ID="gvMyFavs" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" PageSize="7" Visible="False" DataKeyNames="Title" Width="500px" OnSelectedIndexChanged="gvMyFavs_SelectedIndexChanged">
+                <asp:GridView ID="gvMyFavs" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" PageSize="7" Visible="False" DataKeyNames="Title" Width="500px" OnSelectedIndexChanged="gvMyFavs_SelectedIndexChanged" OnPageIndexChanging="gvMyFavs_PageIndexChanging">
                     <Columns>
                         <asp:ButtonField CommandName="select" DataTextField="Title" Text="Button" HeaderText="Title" />
                     </Columns>
