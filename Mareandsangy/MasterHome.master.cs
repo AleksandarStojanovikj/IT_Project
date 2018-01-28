@@ -14,8 +14,9 @@ public partial class MasterHome : System.Web.UI.MasterPage {
     }
 
     protected void btnSearch_Click(object sender, EventArgs e) {
+       // bool exists = true;
         if (tbSearch.Text != "") {
-            string checkUser = tbSearch.Text;
+            string checkUser = tbSearch.Text.ToLower();
             if(checkUser == Session["username"].ToString()) {
                 Response.Redirect("MyPage.aspx");
             }
@@ -33,16 +34,22 @@ public partial class MasterHome : System.Web.UI.MasterPage {
                     if (reader["Username"].ToString().Equals(checkUser)) {
                         Session["otherUser"] = checkUser;
                         Response.Redirect("OtherUserPage.aspx");
+                       // exists = true;
+                       // break;
                     }
                     else {
                         //lblError.Visible = true;
+                        //exists = false;
+
                     }
                 }
+                 Response.Redirect("NotFound.aspx");
             }
             catch (Exception err) {
-
+               
             }
             finally {
+                
                 connection.Close();
             }
         }
@@ -50,6 +57,10 @@ public partial class MasterHome : System.Web.UI.MasterPage {
 
     protected void btnSignOut_Click(object sender, EventArgs e) {
         Response.Redirect("Login.aspx");
+    }
+
+    protected void Button1_Click(object sender, EventArgs e) {
+        Response.Redirect("MyPage.aspx");
     }
 }
 
