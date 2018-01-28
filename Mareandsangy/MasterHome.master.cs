@@ -38,7 +38,6 @@ public partial class MasterHome : System.Web.UI.MasterPage {
                         //lblError.Visible = true;
                     }
                 }
-
             }
             catch (Exception err) {
 
@@ -47,6 +46,10 @@ public partial class MasterHome : System.Web.UI.MasterPage {
                 connection.Close();
             }
         }
+    }
+
+    protected void btnSignOut_Click(object sender, EventArgs e) {
+        Response.Redirect("Login.aspx");
     }
 }
 
