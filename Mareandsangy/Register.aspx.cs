@@ -22,7 +22,7 @@ public partial class Register : System.Web.UI.Page {
             string sqlString = "INSERT INTO Users (Username,Name,Password) values(@username,@name,@password)";
             SqlCommand command = new SqlCommand(sqlString, connection);
             command.Parameters.AddWithValue("@name", tbName.Text);
-            command.Parameters.AddWithValue("@username", tbUsername.Text);
+            command.Parameters.AddWithValue("@username", tbUsername.Text.ToLower());
             command.Parameters.AddWithValue("@password", tbPassword.Text);
             
 
@@ -33,7 +33,7 @@ public partial class Register : System.Web.UI.Page {
                // lblAlreadyTaken.Text = "Account created! Taking you to login page";
               //  lblAlreadyTaken.Visible = true;
 
-                System.Threading.Thread.Sleep(3000);
+               // System.Threading.Thread.Sleep(3000);
                 Response.Redirect("Login.aspx");
             }
             catch (Exception err) {
