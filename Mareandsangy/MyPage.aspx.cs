@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -15,13 +12,44 @@ public partial class MyPage : System.Web.UI.Page {
                 Response.Redirect("Login.aspx");
             }
         }
-        
     }
 
     protected void btnFavorites_Click(object sender, EventArgs e) {
         // fillGVAll("fav");
         fillGV();
     }
+
+    protected void btntoWatch_Click(object sender, EventArgs e) {
+        //fillGVW("false");
+        //fillGVAll("false");
+        fillGVToWatch();
+    }
+
+    protected void btnWatched_Click(object sender, EventArgs e) {
+        // fillGVW("true");
+        fillGVW();
+    }
+
+    protected void gvMyFavs_SelectedIndexChanged(object sender, EventArgs e) {
+        if (gvMyFavs.SelectedIndex != -1) {
+            pnlDetails.Visible = true;
+            fillDetails();
+        }
+        else {
+            pnlDetails.Visible = false;
+        }
+    }
+
+    protected void gvToWatch_SelectedIndexChanged(object sender, EventArgs e) {
+        if(gvToWatch.SelectedIndex != -1) {
+            pnlDetails.Visible = true;
+            fillDetails2();
+        }
+        else {
+            pnlDetails.Visible = false;
+        }
+    }
+
     protected void fillGVAll(string mode) {
         /*
          *      mode = 0  => Movies To Watch
@@ -71,13 +99,14 @@ public partial class MyPage : System.Web.UI.Page {
             connection.Close();
         }
     }
+
     protected void fillGV() {
+        gvToWatch.Visible = false;
         gvMyFavs.Visible = true;
         SqlConnection connection = new SqlConnection();
         connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
         string sqlCommand = "SELECT Title FROM Favorites,Movies WHERE MovieID=imdbID AND Username=@username";
         SqlCommand command = new SqlCommand(sqlCommand, connection);
-        //command.Parameters.AddWithValue("@table", table);
         command.Parameters.AddWithValue("@username", Session["username"]);
         SqlDataAdapter adapter = new SqlDataAdapter();
         adapter.SelectCommand = command;
@@ -92,17 +121,11 @@ public partial class MyPage : System.Web.UI.Page {
             ViewState["dataset"] = ds;
         }
         catch (Exception err) {
-            //Label1.Text = err.Message;
+            Label1.Text = err.Message;
         }
         finally {
             connection.Close();
         }
-    }
-
-    protected void btntoWatch_Click(object sender, EventArgs e) {
-        //fillGVW("false");
-        //fillGVAll("false");
-        fillGVToWatch();
     }
 
     protected void fillGVToWatch() {
@@ -161,16 +184,6 @@ public partial class MyPage : System.Web.UI.Page {
         finally {
             connection.Close();
         }
-    }
-
-    protected void btnWatched_Click(object sender, EventArgs e) {
-        // fillGVW("true");
-        fillGVW();
-    }
-
-    protected void gvMyFavs_SelectedIndexChanged(object sender, EventArgs e) {
-        pnlDetails.Visible = true;
-        fillDetails();
     }
 
     protected void fillDetails() {
@@ -236,9 +249,6 @@ public partial class MyPage : System.Web.UI.Page {
             connection.Close();
         }
     }
-    protected void gvToWatch_SelectedIndexChanged(object sender, EventArgs e) {
-        fillDetails2();
-    }
 
     protected void gvToWatch_RowDeleting(object sender, GridViewDeleteEventArgs e) {
         gvToWatch.SelectedIndex = e.RowIndex;
@@ -265,12 +275,23 @@ public partial class MyPage : System.Web.UI.Page {
         }
     }
 
-    protected void gvToWatch_RowEditing(object sender, GridViewEditEventArgs e) {
-        SqlConnection connection = new SqlConnection();
-        connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
-        string sqlString = "UPDATE Watched SET watched=true WHERE Username=@username AND MovieID=(SELECT imdbID FROM Movies WHERE Movies.Title=Watched.Title)";
-        SqlCommand command = new SqlCommand(sqlString, connection);
-        command.Parameters.AddWithValue("@username", Session["username"].ToString());
-        fillGVToWatch();
+    protected void gvMyFavs_PageIndexChanging(object sender, GridViewPageEventArgs e) {
+        gvMyFavs.PageIndex = e.NewPageIndex;
+        gvMyFavs.SelectedIndex = -1;
+        DataSet ds = (DataSet)ViewState["dataset"];
+        gvMyFavs.DataSource = ds;
+        gvMyFavs.DataBind();
+        gvMyFavs.Visible = true;
+        pnlDetails.Visible = false;
+    }
+
+    protected void gvToWatch_PageIndexChanging(object sender, GridViewPageEventArgs e) {
+        gvToWatch.PageIndex = e.NewPageIndex;
+        gvToWatch.SelectedIndex = -1;
+        DataSet ds = (DataSet)ViewState["dataset"];
+        gvToWatch.DataSource = ds;
+        gvToWatch.DataBind();
+        gvToWatch.Visible = true;
+        pnlDetails.Visible = false;
     }
 }
