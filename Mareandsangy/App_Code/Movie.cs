@@ -1,6 +1,8 @@
-﻿/// <summary>
+﻿using System;
+/// <summary>
 /// Movie class for imdb attributes
 /// </summary>
+[Serializable]
 public class Movie {
     public string Title { get; set; }
     public string Year { get; set; }

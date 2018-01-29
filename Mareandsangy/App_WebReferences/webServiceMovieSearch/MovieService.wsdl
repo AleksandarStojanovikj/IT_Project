@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getMovie">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="year" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMovieResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMovieResult" type="tns:Movie" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Movie">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rated" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Released" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Runtime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Genre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Director" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Writer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Actors" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Plot" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Awards" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Poster" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Metascore" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="imdbRating" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="imdbVotes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="imdbID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getMovieSoapIn">
+    <wsdl:part name="parameters" element="tns:getMovie" />
+  </wsdl:message>
+  <wsdl:message name="getMovieSoapOut">
+    <wsdl:part name="parameters" element="tns:getMovieResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MovieServiceSoap">
+    <wsdl:operation name="getMovie">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a movie object from the imdb api</wsdl:documentation>
+      <wsdl:input message="tns:getMovieSoapIn" />
+      <wsdl:output message="tns:getMovieSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MovieServiceSoap" type="tns:MovieServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getMovie">
+      <soap:operation soapAction="http://tempuri.org/getMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MovieServiceSoap12" type="tns:MovieServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getMovie">
+      <soap12:operation soapAction="http://tempuri.org/getMovie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MovieService">
+    <wsdl:port name="MovieServiceSoap" binding="tns:MovieServiceSoap">
+      <soap:address location="http://localhost:56363/MovieService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MovieServiceSoap12" binding="tns:MovieServiceSoap12">
+      <soap12:address location="http://localhost:56363/MovieService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
