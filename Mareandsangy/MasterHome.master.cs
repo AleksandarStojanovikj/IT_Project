@@ -62,5 +62,9 @@ public partial class MasterHome : System.Web.UI.MasterPage {
     protected void Button1_Click(object sender, EventArgs e) {
         Response.Redirect("MyPage.aspx");
     }
+
+    protected void btnHome_Click(object sender, EventArgs e) {
+        Response.Redirect("Home.aspx");
+    }
 }
 

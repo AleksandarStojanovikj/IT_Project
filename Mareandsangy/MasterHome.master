@@ -13,6 +13,7 @@
         .btnSignout {
             // margin-left: 30px;
         }
+        
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -23,17 +24,19 @@
 
 
 
-        <div class="row justify-content-around align-items-center py-2" style="background-color: indianred;">
-            <div class="col-3 input-group">
+        <div class="row justify-content-around align-items-center py-2" style="background-color: #02192d;">
+            
+            <div class="col-5 input-group">
+                <asp:Button ID="btnHome" runat="server" Text="Home" type="button" CssClass="btn btn-info btnSignout" aria-pressed="false" OnClick="btnHome_Click" />
                 <asp:TextBox ID="tbSearch" runat="server" class="form-control" placeholder="Search for other user" aria-label="Recipient's username" aria-describedby="basic-addon2"></asp:TextBox>
                 <div class="input-group-append">
                     <asp:Button ID="btnSearch" runat="server" Text="Search" class="btn btn-light" type="button" OnClick="btnSearch_Click" />
-                </div>
+                </div>  <h5 style="padding-left:10px; padding-top:5px"><em><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/MovieSearch.aspx" ForeColor="White">Search for a movie</asp:HyperLink></em></h5> 
             </div>
             <div class="col-3">
-                <h5 style="color: white">Hello <em style="color: white">
+                 <h5 style="color: white;padding-top:5px;">Hello <em style="color: white">
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MyPage.aspx" ForeColor="White"></asp:HyperLink></em>
-                    <asp:Button ID="btnSignOut" runat="server" Text="Sign out" type="button" CssClass="btn btn-danger btnSignout" aria-pressed="false" OnClick="btnSignOut_Click" />
+                    <asp:Button ID="btnSignOut" runat="server" Text="Sign out" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnSignOut_Click" />
                 </h5>
             </div>
 
