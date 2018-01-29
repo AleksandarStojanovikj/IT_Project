@@ -13,16 +13,16 @@
             <div class="col-2"></div>
 
             <div class="col-2">
-                <asp:Button ID="btnFavorites" runat="server" Text="My favorites" type="button" CssClass="btn btn-danger btn-lg mpbtn" aria-pressed="false" OnClick="btnFavorites_Click" />
+                <asp:Button ID="btnFavorites" runat="server" Text="My favorites" type="button" CssClass="btn btn-info btn-lg mpbtn" aria-pressed="false" OnClick="btnFavorites_Click" />
             </div>
 
             <div class="col-2">
-                <asp:Button ID="btntoWatch" runat="server" Text="To watch" type="button" CssClass="btn btn-danger btn-lg mpbtn" aria-pressed="false" OnClick="btntoWatch_Click" />
+                <asp:Button ID="btntoWatch" runat="server" Text="To watch" type="button" CssClass="btn btn-info btn-lg mpbtn" aria-pressed="false" OnClick="btntoWatch_Click" />
             </div>
 
 
             <div class="col-2">
-                <asp:Button ID="btnWatched" runat="server" Text="Already watched" type="button" CssClass="btn btn-danger btn-lg mpbtn" aria-pressed="false" OnClick="btnWatched_Click" />
+                <asp:Button ID="btnWatched" runat="server" Text="Already watched" type="button" CssClass="btn btn-info btn-lg mpbtn" aria-pressed="false" OnClick="btnWatched_Click" />
             </div>
         </div>
 
@@ -70,19 +70,19 @@
                 <asp:Panel ID="pnlDetails" runat="server" Visible="False">
                     <div class="row">
                         <asp:Image ID="imgPoster" runat="server" />
-                    </div>
+                   </div>
                     <div class="row">
                         <asp:Label ID="Label2" runat="server" Text="Tile:" ForeColor="White" Font-Bold="True"></asp:Label><asp:Label ID="lblTitle" runat="server" Text=""  ForeColor="White"></asp:Label>
-                    </div>
+                </div>
                     <div class="row">
                         <asp:Label ID="Label4" runat="server" Text="Duration: "  ForeColor="White" Font-Bold="True"></asp:Label><asp:Label ID="lblDuration" runat="server" Text=""  ForeColor="White"></asp:Label>
-                    </div>
+                  </div>
                     <div class="row">
                         <asp:Label ID="Label6" runat="server" Text="Director: "  ForeColor="White" Font-Bold="True"></asp:Label><asp:Label ID="lblDirector" runat="server" Text=""  ForeColor="White"></asp:Label>
                     </div>
                     <div class="row">
                         <asp:Label ID="Label8" runat="server" Text="Plot: "  ForeColor="White" Font-Bold="True"></asp:Label><asp:Label ID="lblPlot" runat="server" Text=""  ForeColor="White"></asp:Label>
-                    </div>
+                </div>
                 </asp:Panel>
             </div>
 
