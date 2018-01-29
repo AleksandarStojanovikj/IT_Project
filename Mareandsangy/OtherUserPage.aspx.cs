@@ -120,8 +120,8 @@ public partial class OtherUserPage : System.Web.UI.Page {
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read()) {
                 if (reader["Title"].ToString().Equals(movieTitle)) {
-                    // lblTitle.Text = reader["Title"].ToString();
-                    Label2.Text += " " + reader["Title"].ToString();
+                    lblTitle.Text = reader["Title"].ToString();
+                   // Label2.Text += " " + reader["Title"].ToString();
                     lblDirector.Text = reader["Director"].ToString();
                     lblDuration.Text = reader["Runtime"].ToString();
                     lblPlot.Text = reader["Plot"].ToString();

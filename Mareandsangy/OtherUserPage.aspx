@@ -13,16 +13,16 @@
             <div class="col-2"></div>
 
             <div class="col-2">
-                <asp:Button ID="btnFavorites" runat="server" Text="My favorites" type="button" CssClass="btn btn-danger btn-lg mpbtn" aria-pressed="false" OnClick="btnFavorites_Click" />
+                <asp:Button ID="btnFavorites" runat="server" Text="My favorites" type="button" CssClass="btn btn-info btn-lg mpbtn" aria-pressed="false" OnClick="btnFavorites_Click" />
             </div>
 
             <div class="col-2">
-                <asp:Button ID="btntoWatch" runat="server" Text="To watch" type="button" CssClass="btn btn-danger btn-lg mpbtn" aria-pressed="false" OnClick="btntoWatch_Click" />
+                <asp:Button ID="btntoWatch" runat="server" Text="To watch" type="button" CssClass="btn btn-info btn-lg mpbtn" aria-pressed="false" OnClick="btntoWatch_Click" />
             </div>
 
 
             <div class="col-2">
-                <asp:Button ID="btnWatched" runat="server" Text="Already watched" type="button" CssClass="btn btn-danger btn-lg mpbtn" aria-pressed="false" OnClick="btnWatched_Click" />
+                <asp:Button ID="btnWatched" runat="server" Text="Already watched" type="button" CssClass="btn btn-info btn-lg mpbtn" aria-pressed="false" OnClick="btnWatched_Click" />
             </div>
         </div>
 
