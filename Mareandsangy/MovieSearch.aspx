@@ -28,10 +28,10 @@
         </div>
         <div class="row">
             <asp:Panel ID="pnlMovie" runat="server" Visible="False">
-                
-                    <asp:Image ID="imgPoster" runat="server" style="float:left;"/>
-                
-                <div style="width:40%;float:left; padding-left:50px">
+
+                <asp:Image ID="imgPoster" runat="server" Style="float: left;" />
+
+                <div style="width: 40%; float: left; padding-left: 50px">
 
                     <h3>
                         <asp:Label ID="lblTitle" runat="server" Text="Label"></asp:Label></h3>
@@ -50,7 +50,9 @@
 
                     <asp:Label ID="Label11" runat="server" Text="Plot: " Font-Bold="True"></asp:Label><asp:Label ID="lblPlot" runat="server" Text=""></asp:Label><br />
 
-                    <div><asp:Button ID="btnFav" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout my-3" aria-pressed="false" OnClick="btnFav_Click"/><asp:Button ID="btnWatch" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch_Click"/></div>
+                    <div>
+                        <asp:Button ID="btnFav" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout my-3" aria-pressed="false" OnClick="btnFav_Click" /><asp:Button ID="btnWatch" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch_Click" />
+                    </div>
                 </div>
             </asp:Panel>
         </div>

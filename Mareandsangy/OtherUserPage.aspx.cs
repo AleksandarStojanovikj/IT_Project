@@ -43,7 +43,6 @@ public partial class OtherUserPage : System.Web.UI.Page {
         connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
         string sqlCommand = "SELECT Title FROM Favorites,Movies WHERE MovieID=imdbID AND Username=@username";
         SqlCommand command = new SqlCommand(sqlCommand, connection);
-        //command.Parameters.AddWithValue("@table", table);
         command.Parameters.AddWithValue("@username", Session["otherUser"]);
         SqlDataAdapter adapter = new SqlDataAdapter();
         adapter.SelectCommand = command;
@@ -121,7 +120,6 @@ public partial class OtherUserPage : System.Web.UI.Page {
             while (reader.Read()) {
                 if (reader["Title"].ToString().Equals(movieTitle)) {
                     lblTitle.Text = reader["Title"].ToString();
-                   // Label2.Text += " " + reader["Title"].ToString();
                     lblDirector.Text = reader["Director"].ToString();
                     lblDuration.Text = reader["Runtime"].ToString();
                     lblPlot.Text = reader["Plot"].ToString();

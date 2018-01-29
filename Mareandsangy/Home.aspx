@@ -2,15 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
-        .card{
+        .card {
             border: none;
-            background:none;
-            color:white;
+            background: none;
+            color: white;
         }
-        .card-img-top{
-            padding-left:20px;
+
+        .card-img-top {
+            padding-left: 20px;
         }
-        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -35,8 +35,9 @@
                         
                     </div>
                     <div class="card-footer bg-transparent">
-                            <asp:Button ID="btnFav1" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav1_Click"/><asp:Button ID="btnWatch1" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch1_Click"/></div>
-                    
+                        <asp:Button ID="btnFav1" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav1_Click" /><asp:Button ID="btnWatch1" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch1_Click" />
+                    </div>
+
                 </div>
                 <div class="card col-3">
                     <asp:Image ID="img2" runat="server" class="card-img-top" Style="width: 50%; height: 50%" />
@@ -45,8 +46,9 @@
                             <asp:Label ID="lblCT2" runat="server" Text=""></asp:Label><asp:Label ID="lblYear2" runat="server" Text=""></asp:Label></h5>
                         <asp:Label ID="lblCD2" runat="server" Text="" class="card-text"></asp:Label>
                     </div>
-                     <div class="card-footer bg-transparent">
-                            <asp:Button ID="btnFav2" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav2_Click"/><asp:Button ID="btnWatch2" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch2_Click"/></div>
+                    <div class="card-footer bg-transparent">
+                        <asp:Button ID="btnFav2" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav2_Click" /><asp:Button ID="btnWatch2" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch2_Click" />
+                    </div>
                 </div>
                 <div class="card col-3">
                     <asp:Image ID="img3" runat="server" class="card-img-top" Style="width: 50%; height: 50%;" />
@@ -55,8 +57,9 @@
                             <asp:Label ID="lblCT3" runat="server" Text=""></asp:Label><asp:Label ID="lblYear3" runat="server" Text=""></asp:Label></h5>
                         <asp:Label ID="lblCD3" runat="server" Text="" class="card-text"></asp:Label>
                     </div>
-                     <div class="card-footer bg-transparent">
-                            <asp:Button ID="btnFav3" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav3_Click"/><asp:Button ID="btnWatch3" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch3_Click"/></div>
+                    <div class="card-footer bg-transparent">
+                        <asp:Button ID="btnFav3" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav3_Click" /><asp:Button ID="btnWatch3" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch3_Click" />
+                    </div>
                 </div>
 
             </div>
@@ -80,8 +83,9 @@
                             <asp:Label ID="lblCT11" runat="server" Text=""></asp:Label><asp:Label ID="lblYear11" runat="server" Text=""></asp:Label></h5>
                         <asp:Label ID="lblCD11" runat="server" Text="" class="card-text"></asp:Label>
                     </div>
-                     <div class="card-footer bg-transparent">
-                            <asp:Button ID="btnFav4" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav4_Click"/><asp:Button ID="btnWatch4" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch4_Click"/></div>
+                    <div class="card-footer bg-transparent">
+                        <asp:Button ID="btnFav4" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav4_Click" /><asp:Button ID="btnWatch4" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch4_Click" />
+                    </div>
                 </div>
                 <div class="card col-3">
                     <asp:Image ID="img22" runat="server" class="card-img-top" Style="width: 50%; height: 50%" />
@@ -90,8 +94,9 @@
                             <asp:Label ID="lblCT22" runat="server" Text=""></asp:Label><asp:Label ID="lblYear22" runat="server" Text=""></asp:Label></h5>
                         <asp:Label ID="lblCD22" runat="server" Text="" class="card-text"></asp:Label>
                     </div>
-                     <div class="card-footer bg-transparent">
-                            <asp:Button ID="btnFav5" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav5_Click"/><asp:Button ID="btnWatch5" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch5_Click"/></div>
+                    <div class="card-footer bg-transparent">
+                        <asp:Button ID="btnFav5" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav5_Click" /><asp:Button ID="btnWatch5" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch5_Click" />
+                    </div>
                 </div>
                 <div class="card col-3">
                     <asp:Image ID="img33" runat="server" class="card-img-top" Style="width: 50%; height: 50%;" />
@@ -100,8 +105,9 @@
                             <asp:Label ID="lblCT33" runat="server" Text=""></asp:Label><asp:Label ID="lblYear33" runat="server" Text=""></asp:Label></h5>
                         <asp:Label ID="lblCD33" runat="server" Text="" class="card-text"></asp:Label>
                     </div>
-                     <div class="card-footer bg-transparent">
-                            <asp:Button ID="btnFav6" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav6_Click"/><asp:Button ID="btnWatch6" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch6_Click"/></div>
+                    <div class="card-footer bg-transparent">
+                        <asp:Button ID="btnFav6" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav6_Click" /><asp:Button ID="btnWatch6" runat="server" Text="To Watch" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnWatch6_Click" />
+                    </div>
                 </div>
 
             </div>

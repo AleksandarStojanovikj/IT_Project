@@ -7,7 +7,6 @@ public partial class Register : System.Web.UI.Page {
     protected void Page_Load(object sender, EventArgs e) {
         if (!Page.IsPostBack) {
             Session.Abandon();
-            // lblAlreadyTaken.Visible = false;
         }
     }
 
@@ -24,16 +23,12 @@ public partial class Register : System.Web.UI.Page {
             command.Parameters.AddWithValue("@name", tbName.Text);
             command.Parameters.AddWithValue("@username", tbUsername.Text.ToLower());
             command.Parameters.AddWithValue("@password", tbPassword.Text);
-            
+
 
             try {
                 connection.Open();
                 command.ExecuteNonQuery();
 
-               // lblAlreadyTaken.Text = "Account created! Taking you to login page";
-              //  lblAlreadyTaken.Visible = true;
-
-               // System.Threading.Thread.Sleep(3000);
                 Response.Redirect("Login.aspx");
             }
             catch (Exception err) {
@@ -41,10 +36,8 @@ public partial class Register : System.Web.UI.Page {
                 lblAlreadyTaken.Visible = true;
             }
             finally {
-
-
                 connection.Close();
             }
         }
     }
-} //
+}

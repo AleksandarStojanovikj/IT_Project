@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class MovieSearch : System.Web.UI.Page {
 
     protected void Page_Load(object sender, EventArgs e) {
         if (!Page.IsPostBack) {
-            if(Session["username"] == null) {
+            if (Session["username"] == null) {
                 Response.Redirect("Login.aspx");
             }
         }
@@ -42,7 +38,7 @@ public partial class MovieSearch : System.Web.UI.Page {
             "values(@Title, @Stars, @Year, @Rated, @Released, @Runtime, @Genre, @Director, @Writer, " +
             "@Actors, @Plot, @Language, @Country, @Awards, @Poster, @Metascore, @imdbRating, @imdbVotes, @imdbID, @Type, @Response)";
         SqlCommand command = new SqlCommand(sqlString, connection);
-        
+
         command.Parameters.AddWithValue("@Title", movie.Title);
         command.Parameters.AddWithValue("@Stars", movie.imdbRating);
         command.Parameters.AddWithValue("@Year", movie.Year);
@@ -70,7 +66,7 @@ public partial class MovieSearch : System.Web.UI.Page {
             command.ExecuteNonQuery();
         }
         catch (Exception err) {
-            
+
         }
         finally {
             connection.Close();
@@ -89,7 +85,7 @@ public partial class MovieSearch : System.Web.UI.Page {
             connection.Open();
             command.ExecuteNonQuery();
         }
-        catch(Exception err) {
+        catch (Exception err) {
 
         }
         finally {

@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class Home : System.Web.UI.Page {
     protected void Page_Load(object sender, EventArgs e) {
@@ -15,39 +12,35 @@ public partial class Home : System.Web.UI.Page {
             if (Session["username"] == null) {
                 Response.Redirect("Login.aspx");
             }
-            
         }
-        
-
-
     }
 
     protected void loadContentRecommended() {
         List<Movie> movies = new List<Movie>();
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             movies.Add(new Movie());
         }
         SqlConnection connection = new SqlConnection();
         connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
         string sqlString = "Select TOP 3 * FROM Movies ORDER BY CHECKSUM(NEWID())";
         SqlCommand command = new SqlCommand(sqlString, connection);
-        
+
         try {
             connection.Open();
             command.ExecuteNonQuery();
             int i = 0;
             SqlDataReader reader = command.ExecuteReader();
-            while(reader.Read()) {
-                
-               movies[i].Title = reader["Title"].ToString();
+            while (reader.Read()) {
+
+                movies[i].Title = reader["Title"].ToString();
                 movies[i].Poster = reader["Poster"].ToString();
                 movies[i].Plot = reader["Plot"].ToString();
                 movies[i].Year = " (" + reader["Year"].ToString() + ")";
                 movies[i].imdbID = reader["imdbID"].ToString();
                 i++;
-                if (i == 3)
-                    break; 
-               
+                if (i == 3) {
+                    break;
+                }
             }
 
             img1.ImageUrl = movies[0].Poster;
@@ -59,7 +52,7 @@ public partial class Home : System.Web.UI.Page {
             lblCT1.Text = movies[0].Title;
             lblCT2.Text = movies[1].Title;
             lblCT3.Text = movies[2].Title;
-            lblYear1.Text= movies[0].Year;
+            lblYear1.Text = movies[0].Year;
             lblYear2.Text = movies[1].Year;
             lblYear3.Text = movies[2].Year;
             ViewState["movieListR"] = movies;
@@ -83,7 +76,7 @@ public partial class Home : System.Web.UI.Page {
         // string sqlString = "Select Distinct Top 3 *  From Movies,Watched,Favorites WHERE Movies.imdbID=Watched.MovieID OR Movies.imdbID=Favorites.MovieID ORDER BY imdbRating";
         string sqlString = "Select DISTINCT TOP 3 CHECKSUM(NEWID()),Watched.MovieID,Title,Year,Plot,Poster,imdbID FROM Movies,Watched,Favorites WHERE Movies.imdbRating=Watched.MovieID OR Movies.imdbID=Favorites.MovieID ORDER BY CHECKSUM(NEWID())";
         SqlCommand command = new SqlCommand(sqlString, connection);
-       
+
 
         try {
             connection.Open();
@@ -91,17 +84,17 @@ public partial class Home : System.Web.UI.Page {
             int i = 0;
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read()) {
-                
-                    movies[i].Title = reader["Title"].ToString();
-                    movies[i].Poster = reader["Poster"].ToString();
-                    movies[i].Plot = reader["Plot"].ToString();
-                    movies[i].Year = " (" + reader["Year"].ToString() + ")";
-                    movies[i].imdbID = reader["imdbID"].ToString();
-                i++;
-                
-                if (i == 3)
-                    break;
 
+                movies[i].Title = reader["Title"].ToString();
+                movies[i].Poster = reader["Poster"].ToString();
+                movies[i].Plot = reader["Plot"].ToString();
+                movies[i].Year = " (" + reader["Year"].ToString() + ")";
+                movies[i].imdbID = reader["imdbID"].ToString();
+                i++;
+
+                if (i == 3) {
+                    break;
+                }
             }
 
             img11.ImageUrl = movies[0].Poster;
@@ -138,7 +131,8 @@ public partial class Home : System.Web.UI.Page {
         try {
             connection.Open();
             command.ExecuteNonQuery();
-        }catch(Exception err) {
+        }
+        catch (Exception err) {
             lblError.Text = err.Message;
         }
         finally {
