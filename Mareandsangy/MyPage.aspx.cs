@@ -155,6 +155,7 @@ public partial class MyPage : System.Web.UI.Page {
                     lblDuration.Text = reader["Runtime"].ToString();
                     lblPlot.Text = reader["Plot"].ToString();
                     imgPoster.ImageUrl = reader["Poster"].ToString();
+                    ViewState["imdbID"] = reader["imdbID"].ToString();
                 }
             }
         }
@@ -239,4 +240,29 @@ public partial class MyPage : System.Web.UI.Page {
         gvToWatch.DataBind();
         gvToWatch.Visible = true;
     }
+
+    protected void btnFav1_Click(object sender, EventArgs e) {
+        addToFavorites(ViewState["imdbID"].ToString());
+    }
+
+    protected void addToFavorites(string id) {
+        SqlConnection connection = new SqlConnection();
+        connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
+        string sqlString = "INSERT INTO Favorites (MovieID, Username) values (@movieID, @username)";
+        SqlCommand command = new SqlCommand(sqlString, connection);
+        command.Parameters.AddWithValue("@movieID", id);
+        command.Parameters.AddWithValue("@username", Session["username"].ToString());
+
+        try {
+            connection.Open();
+            command.ExecuteNonQuery();
+        }
+        catch (Exception err) {
+            //   lblError.Text = err.Message;
+        }
+        finally {
+            connection.Close();
+        }
+    }
+
 }

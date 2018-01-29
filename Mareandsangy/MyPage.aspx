@@ -13,16 +13,16 @@
         <div class="col-2"></div>
 
         <div class="col-2">
-            <asp:Button ID="btnFavorites" runat="server" Text="My favorites" type="button" CssClass="btn btn-info btn-lg mpbtn" aria-pressed="false" OnClick="btnFavorites_Click" />
+            <asp:button id="btnFavorites" runat="server" text="My favorites" type="button" cssclass="btn btn-info btn-lg mpbtn" aria-pressed="false" onclick="btnFavorites_Click" />
         </div>
 
         <div class="col-2">
-            <asp:Button ID="btntoWatch" runat="server" Text="To watch" type="button" CssClass="btn btn-info btn-lg mpbtn" aria-pressed="false" OnClick="btntoWatch_Click" />
+            <asp:button id="btntoWatch" runat="server" text="To watch" type="button" cssclass="btn btn-info btn-lg mpbtn" aria-pressed="false" onclick="btntoWatch_Click" />
         </div>
 
 
         <div class="col-2">
-            <asp:Button ID="btnWatched" runat="server" Text="Already watched" type="button" CssClass="btn btn-info btn-lg mpbtn" aria-pressed="false" OnClick="btnWatched_Click" />
+            <asp:button id="btnWatched" runat="server" text="Already watched" type="button" cssclass="btn btn-info btn-lg mpbtn" aria-pressed="false" onclick="btnWatched_Click" />
         </div>
     </div>
 
@@ -30,44 +30,48 @@
         <div class="col-1"></div>
 
         <div class="col-6">
-            <asp:GridView ID="gvMyFavs" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" PageSize="7" Visible="False" DataKeyNames="Title" Width="500px" OnSelectedIndexChanged="gvMyFavs_SelectedIndexChanged" OnPageIndexChanging="gvMyFavs_PageIndexChanging">
+            <asp:gridview id="gvMyFavs" runat="server" allowpaging="True" autogeneratecolumns="False" cellpadding="4" pagesize="7" visible="False" datakeynames="Title" width="500px" onselectedindexchanged="gvMyFavs_SelectedIndexChanged" onpageindexchanging="gvMyFavs_PageIndexChanging" forecolor="#333333" gridlines="None">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:ButtonField CommandName="select" DataTextField="Title" Text="Button" HeaderText="Title" />
                 </Columns>
-                <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
-                <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
-                <RowStyle BackColor="White" ForeColor="#330099" />
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
-                <SortedAscendingCellStyle BackColor="#FEFCEB" />
-                <SortedAscendingHeaderStyle BackColor="#AF0101" />
-                <SortedDescendingCellStyle BackColor="#F6F0C0" />
-                <SortedDescendingHeaderStyle BackColor="#7E0000" />
-            </asp:GridView>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+            </asp:gridview>
 
-            <asp:GridView ID="gvToWatch" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Title" OnRowDeleting="gvToWatch_RowDeleting" OnSelectedIndexChanged="gvToWatch_SelectedIndexChanged" PageSize="7" Width="500px" OnPageIndexChanging="gvToWatch_PageIndexChanging">
+            <asp:gridview id="gvToWatch" runat="server" allowpaging="True" autogeneratecolumns="False" cellpadding="4" datakeynames="Title" onrowdeleting="gvToWatch_RowDeleting" onselectedindexchanged="gvToWatch_SelectedIndexChanged" pagesize="7" width="500px" onpageindexchanging="gvToWatch_PageIndexChanging" forecolor="#333333" gridlines="None">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:ButtonField CommandName="select" DataTextField="Title" HeaderText="Title" />
                     <asp:CommandField DeleteText="Mark as watched" ShowDeleteButton="True" />
                 </Columns>
-                <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
-                <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
-                <RowStyle BackColor="White" ForeColor="#330099" />
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
-                <SortedAscendingCellStyle BackColor="#FEFCEB" />
-                <SortedAscendingHeaderStyle BackColor="#AF0101" />
-                <SortedDescendingCellStyle BackColor="#F6F0C0" />
-                <SortedDescendingHeaderStyle BackColor="#7E0000" />
-            </asp:GridView>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+            </asp:gridview>
 
-            <asp:Label ID="Label1" runat="server"></asp:Label>
+            <asp:label id="Label1" runat="server"></asp:label>
 
         </div>
 
 
         <div class="col-4">
-            <asp:Panel ID="pnlDetails" runat="server" Visible="False">
+            <asp:panel id="pnlDetails" runat="server" visible="False">
                 <div class="row">
                     <asp:Image ID="imgPoster" runat="server" />
                 </div>
@@ -83,7 +87,10 @@
                 <div class="row">
                     <asp:Label ID="Label8" runat="server" Text="Plot: " ForeColor="White" Font-Bold="True"></asp:Label><asp:Label ID="lblPlot" runat="server" Text="" ForeColor="White"></asp:Label>
                 </div>
-            </asp:Panel>
+                <div class="card-footer bg-transparent">
+                        <asp:Button ID="btnFav1" runat="server" Text="Favorite" type="button" CssClass="btn btn-info btnSignout ml-3" aria-pressed="false" OnClick="btnFav1_Click" />
+                    </div>
+            </asp:panel>
         </div>
 
 

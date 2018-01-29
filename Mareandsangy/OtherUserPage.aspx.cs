@@ -124,6 +124,7 @@ public partial class OtherUserPage : System.Web.UI.Page {
                     lblDuration.Text = reader["Runtime"].ToString();
                     lblPlot.Text = reader["Plot"].ToString();
                     imgPoster.ImageUrl = reader["Poster"].ToString();
+                    ViewState["imdbID"] = reader["imdbID"].ToString();
                 }
             }
         }
@@ -144,4 +145,55 @@ public partial class OtherUserPage : System.Web.UI.Page {
         gvMyFavs.Visible = true;
         pnlDetails.Visible = false;
     }
+
+
+    protected void btnFav1_Click(object sender, EventArgs e) {
+        addToFavorites(ViewState["imdbID"].ToString());
+    }
+
+    protected void btnWatch1_Click(object sender, EventArgs e) {
+        addToWatch(ViewState["imdbID"].ToString());
+    }
+
+    protected void addToWatch(string id) {
+        SqlConnection connection = new SqlConnection();
+        connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
+        string sqlString = "INSERT INTO Watched (MovieID, Username, watched) values (@movieID, @username, @watched)";
+        SqlCommand command = new SqlCommand(sqlString, connection);
+        command.Parameters.AddWithValue("@movieID", id);
+        command.Parameters.AddWithValue("@username", Session["username"].ToString());
+        command.Parameters.AddWithValue("@watched", "false");
+
+        try {
+            connection.Open();
+            command.ExecuteNonQuery();
+        }
+        catch (Exception err) {
+           // lblError.Text = err.Message;
+        }
+        finally {
+            connection.Close();
+        }
+    }
+
+    protected void addToFavorites(string id) {
+        SqlConnection connection = new SqlConnection();
+        connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
+        string sqlString = "INSERT INTO Favorites (MovieID, Username) values (@movieID, @username)";
+        SqlCommand command = new SqlCommand(sqlString, connection);
+        command.Parameters.AddWithValue("@movieID", id);
+        command.Parameters.AddWithValue("@username", Session["username"].ToString());
+
+        try {
+            connection.Open();
+            command.ExecuteNonQuery();
+        }
+        catch (Exception err) {
+         //   lblError.Text = err.Message;
+        }
+        finally {
+            connection.Close();
+        }
+    }
+
 }
