@@ -6,33 +6,48 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class MyPage : System.Web.UI.Page {
+    //dodadeno
+    bool favsClicked;
     protected void Page_Load(object sender, EventArgs e) {
         if (!Page.IsPostBack) {
             if (Session["username"] == null) {
                 Response.Redirect("Login.aspx");
             }
         }
+        //dodadeno - treba demek ako e kliknato da gleda favs, da stai visible false na kopcheto
+        favsClicked = false;
     }
 
     protected void btnFavorites_Click(object sender, EventArgs e) {
         fillGV();
         gvMyFavs.SelectedIndex = -1;
+        //dodadeno
+        favsClicked = true;
     }
 
     protected void btntoWatch_Click(object sender, EventArgs e) {
         fillGVToWatch();
         gvToWatch.SelectedIndex = -1;
+        //dodadeno
+        favsClicked = false;
     }
 
     protected void btnWatched_Click(object sender, EventArgs e) {
         fillGVW();
         gvMyFavs.SelectedIndex = -1;
+        //dodadeno
+        favsClicked = false;
     }
 
     protected void gvMyFavs_SelectedIndexChanged(object sender, EventArgs e) {
         if (gvMyFavs.SelectedIndex != -1) {
             pnlDetails.Visible = true;
             fillDetails();
+            //dodadeno
+            if (favsClicked)
+                btnFav1.Visible = false;
+            else
+                btnFav1.Visible = true;
         }
         else {
             pnlDetails.Visible = false;
@@ -43,6 +58,8 @@ public partial class MyPage : System.Web.UI.Page {
         if (gvToWatch.SelectedIndex != -1) {
             pnlDetails.Visible = true;
             fillDetails2();
+            //dodadeno
+            btnFav1.Visible = true;
         }
         else {
             pnlDetails.Visible = false;
