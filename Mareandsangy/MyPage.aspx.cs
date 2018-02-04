@@ -58,6 +58,8 @@ public partial class MyPage : System.Web.UI.Page {
         if (gvToWatch.SelectedIndex != -1) {
             pnlDetails.Visible = true;
             fillDetails2();
+            //dodadeno
+            btnFav1.Visible = true;
         }
         else {
             pnlDetails.Visible = false;
