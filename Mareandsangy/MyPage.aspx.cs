@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class MyPage : System.Web.UI.Page {
-    //dodadeno
+
     bool favsClicked;
     protected void Page_Load(object sender, EventArgs e) {
         if (!Page.IsPostBack) {
@@ -14,36 +14,37 @@ public partial class MyPage : System.Web.UI.Page {
                 Response.Redirect("Login.aspx");
             }
         }
-        //dodadeno - treba demek ako e kliknato da gleda favs, da stai visible false na kopcheto
         favsClicked = false;
     }
 
     protected void btnFavorites_Click(object sender, EventArgs e) {
         fillGV();
         gvMyFavs.SelectedIndex = -1;
-        //dodadeno
         favsClicked = true;
+        ViewState["favsC"] = favsClicked;
     }
 
     protected void btntoWatch_Click(object sender, EventArgs e) {
         fillGVToWatch();
         gvToWatch.SelectedIndex = -1;
-        //dodadeno
         favsClicked = false;
+        ViewState["favsC"] = favsClicked;
     }
 
     protected void btnWatched_Click(object sender, EventArgs e) {
         fillGVW();
         gvMyFavs.SelectedIndex = -1;
-        //dodadeno
         favsClicked = false;
+        ViewState["favsC"] = favsClicked;
     }
 
     protected void gvMyFavs_SelectedIndexChanged(object sender, EventArgs e) {
         if (gvMyFavs.SelectedIndex != -1) {
             pnlDetails.Visible = true;
             fillDetails();
-            //dodadeno
+
+            btnFav1.Visible = false;
+            favsClicked = (bool)ViewState["favsC"];
             if (favsClicked)
                 btnFav1.Visible = false;
             else
@@ -58,7 +59,7 @@ public partial class MyPage : System.Web.UI.Page {
         if (gvToWatch.SelectedIndex != -1) {
             pnlDetails.Visible = true;
             fillDetails2();
-            //dodadeno
+
             btnFav1.Visible = true;
         }
         else {
@@ -228,8 +229,6 @@ public partial class MyPage : System.Web.UI.Page {
         try {
             connection.Open();
             command.ExecuteNonQuery();
-
-
         }
         catch (Exception err) {
             Label1.Text = err.Message;
