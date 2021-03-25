@@ -41,7 +41,7 @@ public class MovieService : System.Web.Services.WebService {
 #### Setup database
 
 Import the database in the Server Explorer in Visual Studio by right clicking `Data Connections` then selecting `Add Connection`. 
-Set `Microsoft SQL Server Database File (SqlClient)` as the data source and select [`Database/pubs/pubs.mdf`](Database/pubs/pubs.mdf) as the database file. Then update the connection string in the `Web.config`. 
+Set `Microsoft SQL Server Database File (SqlClient)` as the data source and select [`Database/pubs/pubs.mdf`](../Database/pubs/pubs.mdf) as the database file. Then update the connection string in the `Web.config`. 
 
 ```xml
     <add name="myConnection" connectionString="YOUR_CONNECTION_STRING" />
